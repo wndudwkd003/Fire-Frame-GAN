@@ -1,0 +1,6 @@
+train_dataset_path:
+  fire_flame: "/home/kjy/Desktop/development/Fire-Flame-GAN/dataset/fire_flame_data"
+
+
+train_model_path:
+  fire_flame: "/home/kjy/Desktop/development/Fire-Flame-GAN/scripts/fire_flame/output"
