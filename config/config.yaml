@@ -1,6 +1,23 @@
 train_dataset_path:
   fire_flame: "/home/kjy/Desktop/development/Fire-Flame-GAN/dataset/fire_flame_data"
-
+  fire_flame_yolo: "/home/kjy/Desktop/development/Fire-Flame-GAN/dataset/fire_image_robo_yolo9"
 
 train_model_path:
-  fire_flame: "/home/kjy/Desktop/development/Fire-Flame-GAN/scripts/fire_flame/output"
+  flame_patch: "scripts/fire_flame/output"
+  pre_fire: "scripts/pre_fire/output"
+
+
+train_result_path:
+  pre_fire: "scripts/pre_fire/train_result"
+
+
+dataset_path:
+  flame_patch_image: "scripts/pre_fire/flame_patch_image"
+  clean_image: "scripts/pre_fire/clean_image"
+  noisy_clean_image: "scripts/pre_fire/noisy_clean_image"
+  bounding_box: "scripts/pre_fire/bounding_box"
+  fire_image: "dataset/Indoor Fire Dataset.v2i.yolov9"
+
+
+
+

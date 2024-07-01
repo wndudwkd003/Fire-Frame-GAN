@@ -1,2 +1,12 @@
 # Ignore dataset directory
-dataset/fire_flame_data/
+dataset/
+scripts/fire_flame/fire_output
+scripts/fire_flame/fire_output_prev
+scripts/fire_flame/output
+scripts/fire_flame/output_prev
+scripts/pre_fire/bounding_box
+scripts/pre_fire/clean_image
+scripts/pre_fire/flame_patch_image
+scripts/pre_fire/noisy_clean_image
+scripts/pre_fire/output
+scripts/pre_fire/train_result

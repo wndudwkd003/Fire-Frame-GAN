@@ -1,4 +1,17 @@
 import os
+
+import sys
+
+# 현재 파일의 디렉토리
+current_file_directory = os.path.dirname(os.path.abspath(__file__))
+
+# 프로젝트 루트 디렉토리 (현재 파일의 상위 디렉토리)
+project_root_directory = os.path.abspath(os.path.join(current_file_directory, '../..'))
+
+# 프로젝트 루트 디렉토리를 sys.path에 추가
+sys.path.append(project_root_directory)
+
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -42,9 +55,9 @@ optimizerD = optim.Adam(netD.parameters(), lr=0.0002, betas=(0.5, 0.999))
 
 # 체크포인트에서 로드
 start_epoch = 0
-num_epochs = 300
+num_epochs = 200
 checkpoint_dir = cfg.fire_flame_model_path
-checkpoint_name = 'checkpoint_epoch_200.pth'
+checkpoint_name = f'checkpoint_epoch_{num_epochs}.pth'
 checkpoint_path = os.path.join(checkpoint_dir, checkpoint_name)
 
 if os.path.exists(checkpoint_path):
@@ -53,17 +66,15 @@ if os.path.exists(checkpoint_path):
     netD.load_state_dict(checkpoint['discriminator_state_dict'])
     optimizerG.load_state_dict(checkpoint['optimizerG_state_dict'])
     optimizerD.load_state_dict(checkpoint['optimizerD_state_dict'])
-    start_epoch = checkpoint['epoch'] + 1
-    print(f"Checkpoint loaded, resuming training from epoch {start_epoch}")
 
 # 고정된 노이즈 벡터
 # fixed_noise = torch.randn(64, 100, 1, 1, device=device)
 
 
 with torch.no_grad():
-    for i in range(30):
+    for i in range(100):
         netG.eval()
         random_noise = torch.randn(1, 100, 1, 1, device=device)
         fake_image = netG(random_noise).detach().cpu().squeeze(0)
         # fake_images = netG(fixed_noise).detach().cpu()
-        save_generated_images(fake_image, 64, epoch=180)
+        save_generated_images(fake_image, 64, epoch=num_epochs)
